@@ -1,5 +1,6 @@
 ﻿const userSurname = document.querySelector('[name="surname"]');     //элемент input с фамилией
 const userName = document.querySelector('[name="name"]');           //элемент input с именем
+const result = document.querySelector('[name="result"]');
 const goodsElements = document.querySelectorAll('[name="goods"]');  //элементы checkbox с товарами goods
 const countElements = document.querySelectorAll('[type="number"]'); //элементы input с кол-вом
 const btn = document.querySelector(".btn");         //элемент button
@@ -59,6 +60,7 @@ function total_sum() {
         total += choicePriceGoods[key] * countGoods[key];
     }
     resultElem.textContent = `${total} р.`;
+    result.value = total;
 }
 //-------------------------------------------------------------------------------------------------------
 //для каждого элемента input с кол-вом нужно повесить событие на изменение change, 
@@ -110,5 +112,6 @@ goodsElements.forEach(product => {
 //по клику на кнопку должен появиться alert с текстом
 //-------------------------------------------------------------------------------------------------------
 btn.addEventListener("click", function () {
+
     alert(`Заказчик: ${userSurname.value} ${userName.value}\nИтого: ${total} р.`);
 });
